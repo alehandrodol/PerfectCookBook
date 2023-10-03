@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String
 
-from db.config import DeclarativeBase
 from sqlalchemy.orm import relationship
 
+from backend.db.config.db import DeclarativeBase
 from backend.db.models.dish_tag import dish_tag_association_table
 from backend.db.models.recipe_tag import recipe_tag_association_table
 
