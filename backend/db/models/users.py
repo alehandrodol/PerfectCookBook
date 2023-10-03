@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String
 
 from db.config import DeclarativeBase
+from sqlalchemy.orm import relationship
 
 
 class User(DeclarativeBase):
@@ -11,3 +12,5 @@ class User(DeclarativeBase):
     password_hash = Column(String(64), nullable=False)
     firstname = Column(String(64), nullable=True)
     lastname = Column(String(64), nullable=True)
+
+    dishes = relationship('Dish', back_populates='user')
