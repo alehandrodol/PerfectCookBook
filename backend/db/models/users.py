@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String
 
 from sqlalchemy.orm import relationship
 
-from backend.db.config.db import DeclarativeBase
+from db.config.db import DeclarativeBase
 
 
 class User(DeclarativeBase):

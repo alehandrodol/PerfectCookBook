@@ -2,8 +2,8 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Float
 
 from sqlalchemy.orm import relationship
 
-from backend.db.config.db import DeclarativeBase
-from backend.db.models.recipe_tag import recipe_tag_association_table
+from db.config.db import DeclarativeBase
+from db.models.recipe_tag import recipe_tag_association_table
 
 
 class Recipe(DeclarativeBase):
