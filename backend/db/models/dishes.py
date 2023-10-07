@@ -1,9 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-
-from db.config import DeclarativeBase
 from sqlalchemy.orm import relationship
 
-from db.models.dish_tag import dish_tag_association_table
+from db.config import DeclarativeBase
+from db.models import dish_tag_association_table
 
 
 class Dish(DeclarativeBase):
