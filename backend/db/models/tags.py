@@ -1,10 +1,8 @@
 from sqlalchemy import Column, Integer, String
-
 from sqlalchemy.orm import relationship
 
-from db.config.db import DeclarativeBase
-from db.models.dish_tag import dish_tag_association_table
-from db.models.recipe_tag import recipe_tag_association_table
+from db.config import DeclarativeBase
+from db.models import dish_tag_association_table, recipe_tag_association_table
 
 
 class Tag(DeclarativeBase):

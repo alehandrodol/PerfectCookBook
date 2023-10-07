@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey, Table
 
-from db.config.db import METADATA
+from db.config import METADATA
 
 dish_tag_association_table = Table('t_dish_tag', METADATA,
                                    Column('dish_id', Integer, ForeignKey('t_dishes.id')),
