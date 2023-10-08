@@ -4,3 +4,7 @@ sqlalchemy
 psycopg2-binary
 environs
 alembic
+python-multipart
+asyncpg
+passlib
+python-jose
