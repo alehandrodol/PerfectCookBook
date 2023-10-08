@@ -1,5 +1,12 @@
-export default function SignInPopUp() {
+import './PopUp.css'
+
+export default function SignInPopUp({closeFunc}) {
     return (
-        <div>попап с входом</div>
+        <div className="popUpLayout">
+            <div className='popUpWindow'>
+                Попап с входом
+                <button onClick = {() => closeFunc()}>Закрыть</button>
+            </div>
+        </div>
 
     )}

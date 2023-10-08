@@ -3,7 +3,12 @@ import arrow1Icon from '../assets/main_page/arrow1.svg';
 import block2Image from '../assets/main_page/block2Image.png';
 import appleIcon from '../assets/main_page/appleIcon.svg';
 import smileFaceIcon from '../assets/main_page/smileFaceIcon.svg';
+import SingInPopUp from './SignInPopUp'
+import SingUpPopUp from './SignUpPopUp'
 import './Landing.css';
+import { useState } from 'react';
+
+import Modal from './Modal'
 
 
 function sayHello() {
@@ -11,8 +16,41 @@ function sayHello() {
 }
 
 export default function Landing() {
+
+  const [signInOpened, setSignInOpened] = useState(false)
+  const closeSignIn = () => {
+    setSignInOpened(false)
+    document.body.style.overflowY = 'auto';
+  }
+  const openSignIn = () => {
+    setSignInOpened(true);
+    document.body.style.overflowY = 'hidden';
+  }
+
+  const [signUpOpened, setSignUpOpened] = useState(false)
+  const closeSignUp = () => {
+    setSignUpOpened(false)
+    document.body.style.overflowY = 'auto';
+  }
+  const openSignUp = () => {
+    setSignUpOpened(true)
+    document.body.style.overflowY = 'hidden';
+  }
+
+
+
     return (
     <div className='Landing'>
+      <Modal
+        visible={signInOpened}
+        content={<SingInPopUp closeFunc={closeSignIn}/>}
+        closeFunc={closeSignIn}
+      />
+      <Modal
+        visible={signUpOpened}
+        content={<SingUpPopUp closeFunc={closeSignUp}/>}
+        closeFunc={closeSignUp}
+      />
       <header className="App-header">
         <div className='headerMain'>
           <div className='logo' onClick={sayHello}>
@@ -21,8 +59,8 @@ export default function Landing() {
 
           </div>
           <div className='signInUp'>
-            <button className='ButtonSign' onClick={sayHello}>Вход</button>
-            <button className='ButtonSign regButton' onClick={sayHello}>Регистрация</button>
+            <button className='ButtonSign' onClick={openSignIn}>Вход</button>
+            <button className='ButtonSign regButton' onClick={openSignUp}>Регистрация</button>
           </div>
         </div>
         < div className = 'headerBottomLine' ></div>
