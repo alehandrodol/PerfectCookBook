@@ -19,4 +19,4 @@ class Recipe(DeclarativeBase):
 
     dish = relationship('Dish', back_populates='recipes')
     tags = relationship('Tag', secondary=recipe_tag_association_table, back_populates='recipes')
-    ingredients = relationship('Recipe', back_populates='recipe')
+    ingredients = relationship('Ingredient', back_populates='recipe')
