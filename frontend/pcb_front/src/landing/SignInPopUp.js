@@ -15,7 +15,7 @@ export default function SignInPopUp({closeFunc}) {
                     <span></span>
                 </form>
                 <button className="popup__btn popup__enter-btn" type="submit" arial-label="Войти">Войти</button>
-                <button className="popup__cancel-btn" type="button" arial-label="Отменить" onClick = {() => closeFunc()}>Отмена</button>
+                <button className="popup__cancel-btn" type="button" arial-label="Отмена" onClick = {() => closeFunc()}>Отмена</button>
             </div>
         </aside>
 

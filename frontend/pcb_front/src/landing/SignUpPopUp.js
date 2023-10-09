@@ -13,7 +13,7 @@ export default function SignUpPopUp({closeFunc}) {
                     <span></span>
                     <input name="password" type="text" placeholder="Пароль" className="form__text form__text_type_password" id="password-input" required minLength="8" maxLength="30"></input>
                     <span></span>
-                    <input name="sampPassword" type="text" placeholder="Повторите пароль" className="form__text form__text_type_samePassword" id="password-input" required minLength="8" maxLength="30"></input>
+                    <input name="sampPassword" type="text" placeholder="Повторите пароль" className="form__text form__text_type_samePassword" id="samePassword-input" required minLength="8" maxLength="30"></input>
                     <span></span>
                 </form>
                 <div className="popup__checkbox">

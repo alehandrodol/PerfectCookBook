@@ -2,8 +2,7 @@
     font-family: 'Inter';
     font-style:  normal;
     font-weight: 400;
-    font-display: swap;
-    src: url("../assets/main_page/Inter-Regular.ttf") format("ttf")
+    src: url("../assets/main_page/InterRegular.ttf") format("ttf")
   }
 
 .popup {
