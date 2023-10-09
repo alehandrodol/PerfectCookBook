@@ -21,20 +21,24 @@ export default function Landing() {
   const closeSignIn = () => {
     setSignInOpened(false)
     document.body.style.overflowY = 'auto';
+    document.body.style.marginRight = '0px';
   }
   const openSignIn = () => {
     setSignInOpened(true);
     document.body.style.overflowY = 'hidden';
+    document.body.style.marginRight = '14.8px';
   }
 
   const [signUpOpened, setSignUpOpened] = useState(false)
   const closeSignUp = () => {
     setSignUpOpened(false)
     document.body.style.overflowY = 'auto';
+    document.body.style.marginRight = '0px';
   }
   const openSignUp = () => {
     setSignUpOpened(true)
     document.body.style.overflowY = 'hidden';
+    document.body.style.marginRight = '14.8px';
   }
 
 
