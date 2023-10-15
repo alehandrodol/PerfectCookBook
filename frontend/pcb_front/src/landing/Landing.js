@@ -3,6 +3,10 @@ import arrow1Icon from '../assets/main_page/arrow1.svg';
 import block2Image from '../assets/main_page/block2Image.png';
 import appleIcon from '../assets/main_page/appleIcon.svg';
 import smileFaceIcon from '../assets/main_page/smileFaceIcon.svg';
+import card1 from '../assets/main_page/card1.svg';
+import card2 from '../assets/main_page/card2.svg';
+import card3 from '../assets/main_page/card3.svg';
+import ellipse from '../assets/main_page/Ellipse.svg';
 import SingInPopUp from './SignInPopUp'
 import SingUpPopUp from './SignUpPopUp'
 import './Landing.css';
@@ -102,25 +106,39 @@ export default function Landing() {
         <img src={block2Image} className="block2Image"/>
       </div>
       <div className='block3'>
-        <div className='block3Title'>Причины пользования</div>
+        <div className='block3Title'>Как это работает?</div>
         <div className='block3Cards'>
-          <div className='card'>Текст
-            <div className=' card cardBackground'></div>
+          <div className='card'>
+            <img className='card__picture' src={card1}></img>
+            <div className='card__text'>
+              <h2 className='card__name'>Создавай</h2>
+              <p className='card__description'>На нашем сайте ты можешь создать блюдо, а потом создать для него несколько вариаций рецептов.</p>
+            </div>
           </div>
-          <div className='card yellowCard'>Текст
-            <div className=' card cardBackground yellowCardBack'></div>
+          <div className='card'>
+            <img className='card__picture' src={card2}></img>
+            <div className='card__text'>
+              <h2 className='card__name'>Оценивай</h2>
+              <p className='card__description'>Ты можешь поставить каждому рецепту и блюду оценку, что позволяет быстро находить самую удачную версию и не повторять ошибок.</p>
+            </div>
           </div>
-          <div className='card orangeCard'>Текст
-            <div className=' card cardBackground orangeCardBack'></div>
-          </div>
-          <div className='card redCard'>Текст
-            <div className=' card cardBackground redCardBack'></div>
+          <div className='card'>
+            <img className='card__picture' src={card3}></img>
+            <div className='card__text'>
+              <h2 className='card__name'>Сортируй</h2>
+              <p className='card__description'>Для того, чтобы не запутаться в многообразии блюд и рецептов, ты можешь сортировать их по своим оценкам и различным тэгам.</p>
+            </div>
           </div>
         </div>
       </div>
       <div className='block4'>
-        block4
+          <button type='button' className='block4__try-btn' aria-label='Попробовать' onClick={openSignUp}>Попробовать&#9658;</button>
       </div>
+      
+      <footer className='footer'>
+        <div className = 'headerBottomLine'></div>
+        <p className='footer__text'>©,2023️</p>
+      </footer>
     </div>
 
   );
