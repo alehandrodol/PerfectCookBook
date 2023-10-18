@@ -14,9 +14,3 @@ class User(DeclarativeBase):
     lastname = Column(String(64), nullable=True)
 
     dishes = relationship('Dish', back_populates='user')
-
-    def __init__(self, login, password_hash, firstname, lastname):
-        self.login = login
-        self.password_hash = password_hash
-        self.firstname = firstname
-        self.lastname = lastname

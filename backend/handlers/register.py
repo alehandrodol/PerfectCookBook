@@ -3,30 +3,30 @@ from passlib.context import CryptContext
 
 from db.service_funcs import users as db_users
 from db.models import User
+from db.schemas import users as user_schemas
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 router = APIRouter()
 
 
-@router.post("/register", status_code=201)
-async def register(username: str, password: str, firstname: str, lastname: str) -> None:
-    user: User = await db_users.get_user_by_login(username)
-
+@router.post("/", status_code=201, response_model=user_schemas.UserOut)
+async def register(new_user: user_schemas.UserIn):
+    user: User = await db_users.get_user_by_login(new_user.login)
     if user:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail="User already exists"
         )
 
-    await db_users.insert_user(
+    new_user = await db_users.insert_user(
         User(
-            login=username,
-            password_hash=get_password_hash(password),
-            firstname=firstname,
-            lastname=lastname,
+            login=new_user.login,
+            password_hash=get_password_hash(new_user.password)
         )
     )
+
+    return user_schemas.UserOut.model_validate(new_user)
 
 
 def get_password_hash(password):

@@ -16,12 +16,9 @@ async def get_user_by_login(login: str, db_session: AsyncSession) -> Optional[Us
 
 
 @async_db_session
-async def insert_user(user: User, db_session: AsyncSession) -> None:
-    q = insert(User).values(
-        login=user.login,
-        password_hash=user.password_hash,
-        firstname=user.firstname,
-        lastname=user.lastname,
-    )
-    await db_session.execute(q)
+async def insert_user(user: User, db_session: AsyncSession) -> User:
+    db_session.add(user)
     await db_session.commit()
+    await db_session.refresh(user)
+    return user
+
