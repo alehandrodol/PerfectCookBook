@@ -15,30 +15,30 @@ import { useState } from 'react';
 import Modal from './Modal'
 
 
-function sayHello() {
-    alert('You clicked me!');
-}
-
 export default function Landing() {
 
   const [signInOpened, setSignInOpened] = useState(false)
   const closeSignIn = () => {
     setSignInOpened(false)
     document.body.style.overflowY = 'auto';
+    document.body.style.marginRight = 'auto';
   }
   const openSignIn = () => {
     setSignInOpened(true);
     document.body.style.overflowY = 'hidden';
+    document.body.style.marginRight = '14.5px';
   }
 
   const [signUpOpened, setSignUpOpened] = useState(false)
   const closeSignUp = () => {
     setSignUpOpened(false)
     document.body.style.overflowY = 'auto';
+    document.body.style.marginRight = 'auto';
   }
   const openSignUp = () => {
     setSignUpOpened(true)
     document.body.style.overflowY = 'hidden';
+    document.body.style.marginRight = '14.5px';
   }
 
 
@@ -57,7 +57,7 @@ export default function Landing() {
       />
       <header className="App-header">
         <div className='headerMain'>
-          <div className='logo' onClick={sayHello}>
+          <div className='logo'>
             <div className='logoSvg'></div>
             <div className='logoTitle'>Название</div>
 
