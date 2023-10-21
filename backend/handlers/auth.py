@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from typing import Annotated, Optional
+from environs import Env
 
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -10,9 +11,9 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 from db.service_funcs import users as db_users
 from db.models import User
+from db.schemas import users as user_schemas
 
 
-SECRET_KEY = "96cd356ecd79ae797b67daa9840e4c6f9b918cf056db932eba86e6c35046adbd"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 180
 
@@ -22,15 +23,19 @@ router = APIRouter()
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
+env = Env()
+env.read_env()
 
-async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]) -> User:
+
+async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]) -> user_schemas.UserOut:
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
         headers={"WWW-Authenticate": "Bearer"},
     )
+
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        payload = jwt.decode(token, env.str("SECRET_KEY"), algorithms=[ALGORITHM])
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
@@ -39,11 +44,11 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]) -> Use
     user: User = await db_users.get_user_by_login(username)
     if not user:
         raise credentials_exception
-    return user
+    return user_schemas.UserOut.model_validate(user)
 
 
-@router.get("/check_me")
-async def check_me(current_user: Annotated[User, Depends(get_current_user)]):
+@router.get("/check_me", response_model=user_schemas.UserOut)
+async def check_me(current_user: Annotated[user_schemas.UserOut, Depends(get_current_user)]):
     return current_user
 
 
@@ -90,7 +95,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
     else:
         expire = datetime.utcnow() + timedelta(minutes=15)
     to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    encoded_jwt = jwt.encode(to_encode, env.str("SECRET_KEY"), algorithm=ALGORITHM)
     return encoded_jwt
 
 
