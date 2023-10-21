@@ -8,3 +8,4 @@ python-multipart
 asyncpg
 passlib
 python-jose
+pydantic
