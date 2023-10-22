@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Inter&display=swap');
+
+@font-face {
+    font-family: 'Tilda Sans';
+    src: url('../assets/main_page/TildaSans-VF.ttf') format('truetype');
+}
+
+.Landing {
+  height: 2000px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.App-header {
+  height: 175px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.headerMain {
+  height: 113px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-between;
+  background-color: #FFF8E7;
+  padding-bottom: 58.5px;
+}
+
+.logo {
+  width: 406px;
+  height: 77px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logoSvg {
+  border-radius: 35px;
+  width: 70px;
+  height: 70px;
+  background-color: #a4a4a4;
+}
+
+.logoTitle {
+  color: black;
+  font-size: 64px;
+  font-family: 'Inter';
+}
+
+.signInUp {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 13px;
+  margin-right: 13px;
+}
+
+.ButtonSign {
+  width: 266px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 51px;
+  margin-left: 39px;
+  border-radius: 19.5px;
+  border: 2px solid #1F1F1F;
+  background: #FEFDFB;
+  box-shadow: 2px 2px 0px 0px #000;
+  color: #1F1F1F;
+  text-align: center;
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+
+}
+
+.regButton {
+  background: #FFFB47;
+}
+
+.headerBottomLine {
+  width: calc(100% - 10px);
+  height: 4px;
+  background-color: black;
+  
+}
+
+.block1 {
+  display: flex;
+  height: 594px;
+  padding: 84px 185px 84px 171px;
+  justify-content: center;
+  align-items: center;
+  gap: 151px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.windowContainer {
+  display: flex;
+  width: 550px;
+  justify-content: center;
+  align-items: center;
+  gap: 108px;
+}
+
+.window {
+  width: 557px;
+  height: 570px;
+  flex-shrink: 0;
+  border-radius: 29px;
+  border: 4px solid #1F1F1F;
+  background: #FFF8E7;
+  box-shadow: 9px 7px 0px 0px #000;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.appleIcon {
+  width: 175.53px;
+  height: 201.9px;
+  position: absolute;
+  left: -79.5px;
+  top: 64px;
+}
+
+.smileFaceIcon {
+  width: 144.21px;
+  height: 142.21px;
+  position: absolute;
+  bottom: 41px;
+  left: 468.5px;
+}
+
+.windowHeader {
+  height: 65.25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  padding-left: 22px;
+}
+
+.windowHeaderButton {
+  height: 23px;
+  width: 23px;
+  border-radius: 11.5px;
+}
+
+.red {
+  background-color: #E56E79;
+}
+
+.yellow {
+  background-color: #FFE500;
+}
+
+.green {
+  background-color: #A9F44A;
+}
+
+.windowHeaderLine {
+  background-color: #000;
+  height: 4px;
+}
+
+.windowContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #1F1F1F;
+  text-align: center;
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  height: auto;
+  flex: 1;
+}
+
+.windowText {
+  display: flex;
+}
+
+.welcomeBlock {
+  display: flex;
+  width: 650px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 41px;
+  position: relative;
+}
+
+.welcomeTitle {
+  width: 735px;
+  color: #1F1F1F;
+  font-family: 'Tilda Sans';
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.orange {
+  color: #F45C4A;
+}
+
+.welcomeText {
+  width: 650px;
+  color: #1F1F1F;
+  font-family: Tilda Sans;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.createRecipeButton {
+  display: flex;
+  width: 442px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 19.5px;
+  border: 2px solid #1F1F1F;
+  background: #C7F442;
+  box-shadow: 2px 2px 0px 0px #000;
+  color: #1F1F1F;
+  text-align: center;
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.starIcon {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+
+}
+
+.block2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  margin-top: 165px;
+  background-image: url('../assets/main_page/wave.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 90px;
+}
+
+.block2TextContainer {
+  margin-left: 180px;
+  gap: 41px;
+  display: flex;
+  max-width: 650px;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.block2TextTitle {
+  color:black;
+  font-family: Tilda Sans;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.orange2 {
+  color: #F87D5B
+}
+
+.block2TextText {
+  color: #1F1F1F;
+  font-family: Tilda Sans;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.arrow1Icon {
+  position: absolute;
+  width: 116.3px;
+  height: 70.67px;
+  top: -90px;
+  right: -12px;
+
+}
+
+.block2Image {
+  width: 993.82px;
+  height: 865px;
+}
+
+.block3 {
+  margin-top: 147px;
+  max-width: 1504px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 232px;
+}
+
+.block3Title {
+  color: #1F1F1F;
+  font-family: Tilda Sans;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-bottom: 97px;
+}
+
+.block3Cards {
+  max-width: 1506px;
+  display: flex;
+  flex-direction: row;
+  gap: 114px;
+}
+
+.card {
+  max-width: 426px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  flex-shrink: 0;
+  padding: 26px 22px 111px 22px;
+  border-radius: 29px;
+  border: 4px solid #1F1F1F;
+  background: #FFF8E7;
+  box-shadow: 9px 7px 0px 0px #000;
+  box-sizing: border-box;
+}
+
+.card__name {
+  max-width: 215px;
+  color: #F45C4A;
+  font-family: 'Tilda Sans';
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin: 0 0 15px 0;
+}
+
+.card__description {
+  max-width: 382px;
+  color: #1F1F1F;
+  font-family: 'Tilda Sans';
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.block4 {
+  width: 1730px;
+  min-height: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: 211px;
+  background-image: url('../assets/main_page/Ellipse.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.block4__try-btn {
+  width: 1090px;
+  height: 90px;
+  padding: 10px 21px;
+  border-radius: 19.5px;
+  border: 2px solid #1F1F1F;
+  background: #FFFB47;
+  box-shadow: 2px 2px 0px 0px #1F1F1F;
+  color: #1F1F1F;
+  font-family: 'Tilda Sans';
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFF8E7;
+}
+
+.footer__text {
+  text-align: center;
+  font-family: 'Tilda Sans';
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}

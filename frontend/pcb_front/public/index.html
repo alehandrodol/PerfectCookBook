@@ -28,7 +28,29 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="container">
+      <div id="root"></div>
+    </div>
+    <script>
+
+      function forcedOriginalScale( containerId ) {
+      
+        var App = document.getElementById( containerId ); //получаем div по его id
+        App.style.zoom = 1 / devicePixelRatio; //устанавливаем масштаб в зависимости от pixel-ratio  	
+        
+      }
+      
+      document.addEventListener( //когда DOM загрузился
+      
+        "DOMContentLoaded", 
+        
+        function() { 
+          forcedOriginalScale('container'); //выполняем функцию, передаём в неё id нашего контейнера
+        }
+        
+      );
+      
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
