@@ -24,9 +24,6 @@ async def create_dish(new_dish: dish_schemas.CreateDish, current_user: Annotated
     dish = await serv_dishes.insert_dish(dish)
     dish_out = dish_schemas.Dish.model_validate(dish)
 
-    for tag in new_dish.tags:
-        dish_out.tags_names.append(tag)
-
     return dish_out
 
 
