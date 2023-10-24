@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 from db.config import DeclarativeBase
-from db.models.dish_tag import dish_tag_association_table
+from db.models.dish_tag import DishTag
 
 
 class Dish(DeclarativeBase):
@@ -14,6 +14,6 @@ class Dish(DeclarativeBase):
 
     user = relationship('User', back_populates='dishes')
     recipes = relationship('Recipe', back_populates='dish')
-    tags = relationship('Tag', secondary=dish_tag_association_table, back_populates='dishes')
+    tags = relationship('Tag', secondary=DishTag, back_populates='dishes')
 
 
