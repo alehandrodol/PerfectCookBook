@@ -3,8 +3,8 @@ from .ingredients import Ingredient
 from .recipes import Recipe
 from .tags import Tag
 from .users import User
-from .dish_tag import dish_tag_association_table
-from .recipe_tag import recipe_tag_association_table
+from .dish_tag import DishTag
+from .recipe_tag import RecipeTag
 
 __all__ = (
     "User",
@@ -12,6 +12,6 @@ __all__ = (
     "Recipe",
     "Tag",
     "Ingredient",
-    "dish_tag_association_table",
-    "recipe_tag_association_table"
+    "DishTag",
+    "RecipeTag"
 )

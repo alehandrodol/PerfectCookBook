@@ -1,7 +1,6 @@
 from typing import Optional
 
 from sqlalchemy.future import select
-from sqlalchemy import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from db.models import User
