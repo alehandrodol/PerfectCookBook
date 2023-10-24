@@ -8,6 +8,10 @@ class CreateDish(BaseModel):
     tags: list[str] = []
 
 
+class UpdateDish(CreateDish):
+    dish_id: int
+
+
 class Dish(BaseModel):
     id: int
     name: str
