@@ -18,3 +18,7 @@ class Dish(BaseModel):
         arbitrary_types_allowed = True
         from_attributes = True
 
+
+class DishesOut(BaseModel):
+    user_uuid: int
+    dishes: list[Dish]
