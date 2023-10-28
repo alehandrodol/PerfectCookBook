@@ -46,7 +46,7 @@ async def edit_dish(updates: dish_schemas.UpdateDish, current_user: Annotated[Us
             detail="User does not own the dish",
         )
 
-    dish = await serv_dishes.update_dish(dish=dish, updates=updates)
+    dish = await serv_dishes.update_dish(dish_id=dish.id, updates=updates)
 
     dish_out = dish_schemas.Dish.model_validate(dish)
     return dish_out

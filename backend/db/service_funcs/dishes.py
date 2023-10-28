@@ -15,17 +15,18 @@ async def insert_dish(dish: Dish, db_session: AsyncSession) -> Dish:
 
 
 @async_db_session
-async def get_dish_by_id(id: int, db_session: AsyncSession) -> Dish:
-    q = select(Dish).where(Dish.id == id)
+async def get_dish_by_id(dish_id: int, db_session: AsyncSession) -> Dish:
+    q = select(Dish).where(Dish.id == dish_id)
     dish: Dish = await db_session.scalar(q)
     return dish
 
 
 @async_db_session
 async def update_dish(
-        dish: Dish,
+        dish_id: int,
         updates: dish_schemas.UpdateDish,
         db_session: AsyncSession) -> Dish:
+    dish: Dish = await db_session.get(Dish, dish_id)
     dish.name = updates.name
     await db_session.commit()
     await db_session.refresh(dish)
