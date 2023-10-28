@@ -14,6 +14,6 @@ class Dish(DeclarativeBase):
 
     user = relationship('User', back_populates='dishes')
     recipes = relationship('Recipe', back_populates='dish')
-    tags = relationship('Tag', secondary=DishTag, back_populates='dishes')
+    tags = relationship('Tag', secondary=DishTag, back_populates='dishes', lazy='selectin')
 
 

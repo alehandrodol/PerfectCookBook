@@ -1,6 +1,7 @@
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from db.schemas import dishes as dish_schemas
+from sqlalchemy.orm import selectinload
 
 from db.models import Dish
 from db.service_funcs.utils import async_db_session
@@ -10,7 +11,7 @@ from db.service_funcs.utils import async_db_session
 async def insert_dish(dish: Dish, db_session: AsyncSession) -> Dish:
     db_session.add(dish)
     await db_session.commit()
-    await db_session.refresh(dish)
+    await db_session.refresh(dish, attribute_names=["tags"])
     return dish
 
 

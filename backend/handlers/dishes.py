@@ -24,9 +24,6 @@ async def create_dish(new_dish: dish_schemas.CreateDish, current_user: Annotated
     dish = await serv_dishes.insert_dish(dish)
     dish_out = dish_schemas.Dish.model_validate(dish)
 
-    for tag in new_dish.tags:
-        dish_out.tags_names.append(tag)
-
     return dish_out
 
 
@@ -50,3 +47,13 @@ async def edit_dish(updates: dish_schemas.UpdateDish, current_user: Annotated[Us
 
     dish_out = dish_schemas.Dish.model_validate(dish)
     return dish_out
+
+
+@router.get("/", response_model=dish_schemas.DishesOut)
+async def get_dishes(current_user: Annotated[UserOut, Depends(get_current_user)]):
+    dishes = await serv_dishes.get_user_dishes(current_user.uuid)
+
+    return dish_schemas.DishesOut(
+        user_uuid=current_user.uuid,
+        dishes=[dish_schemas.Dish.model_validate(dish) for dish in dishes]
+    )
