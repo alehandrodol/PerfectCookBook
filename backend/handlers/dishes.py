@@ -27,9 +27,12 @@ async def create_dish(new_dish: dish_schemas.CreateDish, current_user: Annotated
     return dish_out
 
 
-@router.post("/edit", response_model=dish_schemas.Dish)
-async def edit_dish(updates: dish_schemas.UpdateDish, current_user: Annotated[UserOut, Depends(get_current_user)]):
-    dish = await serv_dishes.get_dish_by_id(updates.dish_id)
+@router.put("/{dish_id}", response_model=dish_schemas.Dish)
+async def edit_dish(
+        dish_id: int,
+        updates: dish_schemas.UpdateDish,
+        current_user: Annotated[UserOut, Depends(get_current_user)]):
+    dish = await serv_dishes.get_dish_by_id(dish_id)
 
     if dish is None:
         raise HTTPException(
@@ -47,6 +50,25 @@ async def edit_dish(updates: dish_schemas.UpdateDish, current_user: Annotated[Us
 
     dish_out = dish_schemas.Dish.model_validate(dish)
     return dish_out
+
+
+@router.delete("/{dish_id}", status_code=204)
+async def delete_dish(dish_id: int, current_user: Annotated[UserOut, Depends(get_current_user)]):
+    dish = await serv_dishes.get_dish_by_id(dish_id)
+
+    if dish is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Dish not found"
+        )
+
+    if dish.user_id != current_user.uuid:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="User does not own the dish",
+        )
+
+    await serv_dishes.delete_dish(dish_id)
 
 
 @router.get("/", response_model=dish_schemas.DishesOut)
