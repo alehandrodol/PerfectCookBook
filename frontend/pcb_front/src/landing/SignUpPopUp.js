@@ -1,4 +1,4 @@
-import './PopUp.css'
+import './PopUp.css';
 
 export default function SignUpPopUp({closeFunc}) {
     return (

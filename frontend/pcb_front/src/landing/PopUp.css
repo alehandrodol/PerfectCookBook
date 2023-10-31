@@ -86,9 +86,11 @@
     font-family: inherit;
     padding: 0;
     padding-left: 23px;
+    font-size: 18px;
 }
 
 .form__caption {
+    align-self: flex-start;
     color: #1F1F1F;
     font-family: 'Tilda Sans';
     font-size: 24px;
