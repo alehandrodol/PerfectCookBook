@@ -90,6 +90,7 @@
 }
 
 .form__caption {
+    align-self: flex-start;
     color: #1F1F1F;
     font-family: 'Tilda Sans';
     font-size: 24px;

@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    src: url("../assets/main_page/InterRegular.ttf") format("ttf")
+  }
+
+@font-face {
+    font-family: 'Tilda Sans';
+    src: url('../assets/main_page/TildaSans-VF.ttf') format('truetype');
+}
+
+.popup {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.popup__object {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 827.5px;
+    max-width: 659px;
+    background: #FFF8E7;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border: 6px solid #1F1F1F;
+    border-radius: 30px;
+    padding: 40px 32px 40px 32px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form__input-imgContainer {
+    width: 565px;
+    height: 340px;
+    background-image: url('../assets/dishes/bigPlus.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.form__input-img {
+    display: none;
+}
+
+.form__imgTitle {
+    color: rgba(31, 31, 31, 0.71);
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 40px 0;
+}
+
+.form__input-text {
+    width: 536px;
+    height: 65px;
+    background: #FEFDFB;
+    margin-bottom: 40px;
+    padding-left: 23px;
+    font-size: 18px;
+    outline: none;
+    border: 0;
+    border-radius: 20px;
+    background: #FEFDFB;
+}
+
+input[type=text]::placeholder {
+	color:rgba(31, 31, 31, 0.42);
+    font-family: 'Tilda Sans';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.form__tagTitle {
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+}
+
+.form__btn-submit {
+    width: 565px;
+    height: 55px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px 0px #1F1F1F;
+    border-radius: 50px;
+    border: 4px solid #1F1F1F;
+    background: #C7F442;
+}
+
+.form__btn-submit:hover {
+  background: #74A60E;
+}
+
+.popup__img-tag {
+    width: 33px;
+    height: 33px;
+    padding: 0;
+}
+
+.form__btn-addTag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 565px;
+    height: 55px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 3px solid #1F1F1F;
+    background: #FBEAC0;
+    box-shadow: 2px 2px 0px 0px #1F1F1F;
+    margin-bottom: 30px;
+}
+
+.form__btn-addTag:hover {
+    background: #ac9362;
+}
+
+.popup__img-cross {
+    width: 81px;
+    height: 81px;
+}
+
+.popup__clpose-btn {
+    position: absolute;
+    top: -65px;
+    right: -65px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
