@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import config from '../config.json';
 import { useNavigate } from "react-router-dom";
 
-let signIn = async (login, password) => {
+export let signIn = async (login, password) => {
     let success = false
     if (login == '' || password == ''){
         toast.error('Введите логин и пароль');
@@ -52,7 +52,7 @@ export default function SignInPopUp({closeFunc}) {
                     <input name="password" type="text" placeholder="Пароль" className="form__text form__text_type_password" id="password-input" required minLength="8" maxLength="30" value={inputPassword} onInput={e => setInputPassword(e.target.value)}></input>
                     <p className='form__caption'>Введите пароль</p>
                 </form>
-                <button className="popup__btn popup__enter-btn" type="submit" arial-label="Войти" onClick = {() => signIn(inputLogin, inputPassword).then(success => {if(success) navigate("/dishes")})}>Войти</button>
+                <button className="popup__btn popup__enter-btn" type="submit" arial-label="Войти" onClick = {() => signIn(inputLogin, inputPassword).then(success => {if(success) {closeFunc(); navigate("/dishes")}})}>Войти</button>
                 <button className="popup__cancel-btn" type="button" arial-label="Отмена" onClick = {() => closeFunc()}>Отмена</button>
             </div>
             <ToastContainer

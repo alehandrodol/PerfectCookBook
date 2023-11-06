@@ -133,7 +133,7 @@ input[type=text]::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 565px;
+    width: 267px;
     height: 55px;
     color: #1F1F1F;
     text-align: center;
@@ -166,4 +166,32 @@ input[type=text]::placeholder {
     border: 0;
     background-color: transparent;
     cursor: pointer;
+}
+
+
+.form__tags {
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    flex-wrap: wrap;
+}
+
+.form__tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 267px;
+    height: 55px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 50px;
+    border: 3px solid #1F1F1F;
+    background: #FBEAC0;
+    box-shadow: 2px 2px 0px 0px #1F1F1F;
+    margin-bottom: 30px;
 }
