@@ -1,5 +1,6 @@
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from db.schemas import dishes as dish_schemas
 from sqlalchemy.orm import selectinload
 
 from db.models import Dish
@@ -12,6 +13,32 @@ async def insert_dish(dish: Dish, db_session: AsyncSession) -> Dish:
     await db_session.commit()
     await db_session.refresh(dish, attribute_names=["tags"])
     return dish
+
+
+@async_db_session
+async def get_dish_by_id(dish_id: int, db_session: AsyncSession) -> Dish:
+    q = select(Dish).where(Dish.id == dish_id)
+    dish: Dish = await db_session.scalar(q)
+    return dish
+
+
+@async_db_session
+async def update_dish(
+        dish_id: int,
+        updates: dish_schemas.UpdateDish,
+        db_session: AsyncSession) -> Dish:
+    dish: Dish = await db_session.get(Dish, dish_id)
+    dish.name = updates.name
+    await db_session.commit()
+    await db_session.refresh(dish)
+    return dish
+
+
+@async_db_session
+async def delete_dish(dish_id: int, db_session: AsyncSession) -> None:
+    dish: Dish = await db_session.get(Dish, dish_id)
+    await db_session.delete(instance=dish)
+    await db_session.commit()
 
 
 @async_db_session

@@ -14,6 +14,10 @@ class CreateDish(BaseModel):
         return v
 
 
+class UpdateDish(CreateDish):
+    dish_id: int
+
+
 class Dish(BaseModel):
     id: int
     name: str
