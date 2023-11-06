@@ -10,10 +10,10 @@ import plus from '../assets/dishes/plus.svg';
 import meal from '../assets/dishes/meal.svg';
 import trash from '../assets/dishes/delete.svg';
 import edit from '../assets/dishes/edit.svg';
-
+import config from '../config.json';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Dishes.css';
-
-
 
 export default function Dishes() {
 
@@ -23,18 +23,75 @@ export default function Dishes() {
         setNewDishOpened(false)
         document.body.style.overflowY = 'auto';
         document.body.style.marginRight = 'auto';
+        getDishes();
     }
     const openNewDish = () => {
         setNewDishOpened(true);
         document.body.style.overflowY = 'hidden';
         document.body.style.marginRight = '14.5px';
     }
+
+    const alertDishCreated = (dishName) => {
+        toast.success('Блюдо "' + dishName + '" успешно добавлено!');
+    }
+
     const navigate = useNavigate();
     //Проверяем залогинен ли пользователь. Если нет, то редиректим его на главную страницу.
     useEffect(() => {
-        if (!localStorage.getItem('access_token')) {
-            navigate("/")
+
+        const headers = {
+            'accept': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
         }
+        fetch(config.backend + '/auth/check_me', {
+                headers
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.detail == 'Could not validate credentials') {
+                    navigate("/")
+                }
+            });
+    }, []);
+
+    
+    const [dishes, setDishes] = useState();
+    
+    let getDishes = () => {
+        const headers = {
+            'accept': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+        }
+        fetch(config.backend + '/dishes', {
+                headers
+            })
+            .then(response => response.json())
+            .then(data => {
+                let dishesObject = data;
+                setDishes(dishesObject.dishes.map(dishObject =>
+                    <div className="dish">
+                        <div className="dish__container">
+                            <div className="dish__image-container">
+                                <img className="dish__img" src={meal}></img>
+                                <button type='button' className="dish__delete-btn"><img src={trash}></img></button>
+                                <button type='button' className="dish__edit-btn"><img src={edit}></img></button>
+                            </div>
+                            <h2 className="dish__name">{dishObject.name}</h2>
+                            <div className="dish__tags">
+                                {dishObject.tags.map(dishTag =>
+                                    <div className="dish__tag">{dishTag.name}</div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                ));
+                
+            });
+    }
+
+
+    useEffect(() => {
+         getDishes();
     }, []);
     
     return (
@@ -42,8 +99,8 @@ export default function Dishes() {
 
             <Modal
                 visible={NewDishOpened}
-                content={<NewDish closeFunc={closeNewDish}/>}
-                closeFunc={NewDish}
+                content={<NewDish closeFunc={closeNewDish} alertDishCreated={alertDishCreated}/>}
+                closeFunc={closeNewDish}
             />
 
             <header className="App-header">
@@ -73,36 +130,7 @@ export default function Dishes() {
                             <p className="dishes__caption">Создать блюдо</p>
                         </div>
                     </button>
-                    <div className="dish">
-                        <div className="dish__container">
-                            <div className="dish__image-container">
-                                <img className="dish__img" src={meal}></img>
-                                <button type='button' className="dish__delete-btn"><img src={trash}></img></button>
-                                <button type='button' className="dish__edit-btn"><img src={edit}></img></button>
-                            </div>
-                            <h2 className="dish__name">Пончик</h2>
-                            <div className="dish__tags">
-                                <div className="dish__tag">тэг</div>
-                                <div className="dish__tag">тэг</div>
-                                <div className="dish__tag">тэг</div>
-                                <div className="dish__tag">тэг</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="dish">
-                        <div className="dish__container">
-                            <div className="dish__image-container">
-                                <img className="dish__img" src={meal}></img>
-                                <button type='button' className="dish__delete-btn"><img src={trash}></img></button>
-                                <button type='button' className="dish__edit-btn"><img src={edit}></img></button>
-                            </div>
-                            <h2 className="dish__name">Пончик</h2>
-                            <div className="dish__tags">
-                                <div className="dish__tag">тэг</div>
-                                <div className="dish__tag">тэг</div>
-                            </div>
-                        </div>
-                    </div>
+                    {dishes}
                 </div>
             </div>
 
@@ -110,6 +138,18 @@ export default function Dishes() {
                 <div className = 'headerBottomLine'></div>
                 <p className='footer__text'>©,2023️</p>
             </footer>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     )
 }
