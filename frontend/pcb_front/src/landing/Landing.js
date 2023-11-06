@@ -1,12 +1,12 @@
 import starIcon from '../assets/main_page/Star.svg';
 import arrow1Icon from '../assets/main_page/arrow1.svg';
+import arrow2Icon from '../assets/main_page/arrow2.svg';
 import block2Image from '../assets/main_page/block2Image.png';
 import appleIcon from '../assets/main_page/appleIcon.svg';
 import smileFaceIcon from '../assets/main_page/smileFaceIcon.svg';
 import card1 from '../assets/main_page/card1.svg';
 import card2 from '../assets/main_page/card2.svg';
 import card3 from '../assets/main_page/card3.svg';
-import ellipse from '../assets/main_page/Ellipse.svg';
 import SingInPopUp from './SignInPopUp'
 import SingUpPopUp from './SignUpPopUp'
 import './Landing.css';
@@ -132,7 +132,11 @@ export default function Landing() {
         </div>
       </div>
       <div className='block4'>
-          <button type='button' className='block4__try-btn' aria-label='Попробовать' onClick={openSignUp}>Попробовать&#9658;</button>
+        <div className='block4__container'>
+          <h2 className='block4__name'>Начинай прямо <span className='block4__name_red'>сейчас</span></h2>
+          <p className='block4__caption'>Запиши любимые рецепты, чтобы не забыть</p>
+          <button type='button' className='block4__try-btn' aria-label='Попробовать' onClick={openSignUp}><span>Попробовать</span><img src={arrow2Icon}></img></button>
+        </div>
       </div>
       
       <footer className='footer'>

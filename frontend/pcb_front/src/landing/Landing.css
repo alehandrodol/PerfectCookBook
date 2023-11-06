@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  height: 175px;
+  height: 168px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
   align-items: end;
   justify-content: space-between;
   background-color: #FFF8E7;
-  padding-bottom: 58.5px;
+  padding-bottom: 55px;
 }
 
 .logo {
@@ -325,7 +325,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 232px;
+  margin-bottom: 150px;
 }
 
 .block3Title {
@@ -383,34 +383,74 @@
 }
 
 .block4 {
-  width: 1730px;
-  min-height: 720px;
+  width: 1925px;
+  min-height: 1080px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  margin-bottom: 211px;
-  background-image: url('../assets/main_page/Ellipse.svg');
+  background-image: url('../assets/main_page/block4.svg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.block4__container {
+  width: 996px;
+  min-height: 364px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  background: #FEFDFB;
+}
+
+.block4__name {
+  color: #1F1F1F;
+  text-align: center;
+  font-family: 'Tilda Sans';
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin: 50px 0 0 0;
+}
+
+.block4__name_red {
+  color: #F87D5B;
+}
+
+.block4__caption {
+  color: #1F1F1F;
+  text-align: center;
+  font-family: 'Tilda Sans';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
 .block4__try-btn {
-  width: 1090px;
-  height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 592px;
+  height: 69px;
   padding: 10px 21px;
   border-radius: 19.5px;
   border: 2px solid #1F1F1F;
-  background: #FFFB47;
+  background: #F87D5B;
   box-shadow: 2px 2px 0px 0px #1F1F1F;
   color: #1F1F1F;
   font-family: 'Tilda Sans';
-  font-size: 36px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   cursor: pointer;
+  margin-top: 45px;
 }
 
 .footer {
