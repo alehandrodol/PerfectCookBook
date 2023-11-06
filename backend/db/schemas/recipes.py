@@ -42,3 +42,7 @@ class RecipeCreate(BaseModel):
     ingredients: list[IngredientDTO] = []
 
 
+class RecipeUpdate(RecipeCreate):
+    recipe_id: int
+
+

@@ -17,6 +17,6 @@ class Recipe(DeclarativeBase):
     rating = Column(Float, nullable=False)
     cooked_times = Column(Integer, nullable=False)
 
-    dish = relationship('Dish', back_populates='recipes')
+    dish = relationship('Dish', back_populates='recipes', lazy='selectin')
     tags = relationship('Tag', secondary=RecipeTag, back_populates='recipes')
     ingredients = relationship('Ingredient', back_populates='recipe', lazy='selectin')
