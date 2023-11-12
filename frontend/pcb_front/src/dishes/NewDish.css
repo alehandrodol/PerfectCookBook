@@ -29,7 +29,7 @@
     justify-content: center;
     box-sizing: border-box;
     width: 100%;
-    height: 827.5px;
+    height: 862.5px;
     max-width: 659px;
     background: #FFF8E7;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
@@ -133,7 +133,6 @@ input[type=text]::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 267px;
     height: 55px;
     color: #1F1F1F;
     text-align: center;
@@ -147,7 +146,6 @@ input[type=text]::placeholder {
     border: 3px solid #1F1F1F;
     background: #FBEAC0;
     box-shadow: 2px 2px 0px 0px #1F1F1F;
-    margin-bottom: 30px;
 }
 
 .form__btn-addTag:hover {
@@ -170,18 +168,19 @@ input[type=text]::placeholder {
 
 
 .form__tags {
-    display: flex;
-    flex-direction: row;
-    column-gap: 30px;
-    flex-wrap: wrap;
+    width: 565px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    column-gap: 21px;
+    row-gap: 15px;
+    margin-bottom: 30px;
 }
 
 .form__tag {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 267px;
-    height: 55px;
+    justify-content: center;
+    height: 49px;
     color: #1F1F1F;
     text-align: center;
     font-family: 'Tilda Sans';
@@ -193,5 +192,7 @@ input[type=text]::placeholder {
     border: 3px solid #1F1F1F;
     background: #FBEAC0;
     box-shadow: 2px 2px 0px 0px #1F1F1F;
-    margin-bottom: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

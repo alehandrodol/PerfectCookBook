@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'Tilda Sans';
+    src: url('../assets/main_page/TildaSans-VF.ttf') format('truetype');
+}
+
+.popup {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.delete-card__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 460px;
+    max-width: 561px;
+    border-radius: 30px;
+    border: 4px solid #1F1F1F;
+    background: #FFF8E7;
+    padding: 45px 24px 45px 24px;
+    gap: 33px;
+}
+
+.delete-card__img {
+    width: 193px;
+    height: 193px;
+}
+
+.delete-card__title {
+    width: 518px;
+    height: 34px;
+    border-radius: 30px;
+    background: #FEFDFB;
+    color: #1F1F1F;
+    font-family: 'Tilda Sans';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+
+.delete-card__buttons {
+    width: 513px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.delete-card__submit-btn {
+    width: 240px;
+    height: 54px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 30px;
+    border: 3px solid #1F1F1F;
+    background: #F87D5B;
+    box-shadow: 2px 2px 0px 0px #1F1F1F;
+    cursor: pointer;
+}
+
+.delete-card__submit-btn:hover {
+    background: #b22222;
+}
+
+.delete-card__leave-btn {
+    width: 240px;
+    height: 54px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 30px;
+    border: 3px solid #1F1F1F;
+    background: #FEFDFB;
+    box-shadow: 2px 2px 0px 0px #1F1F1F;
+    cursor: pointer;
+}
+
+.delete-card__leave-btn:hover {
+    background: #C0C0C0;
+}
