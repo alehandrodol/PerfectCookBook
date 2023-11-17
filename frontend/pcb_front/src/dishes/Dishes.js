@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import NewDish from "./NewDish";
+import DeleteCard from './DeleteCard';
 import Modal from "../landing/Modal";
 import logOut from '../assets/dishes/logOut.svg';
 import sort from '../assets/dishes/sort.svg';
@@ -18,6 +19,7 @@ import './Dishes.css';
 export default function Dishes() {
 
     const [NewDishOpened, setNewDishOpened] = useState(false);
+    const [DeleteDishOpened, setDeleteDishOpened] = useState(false);
 
     const closeNewDish = () => {
         setNewDishOpened(false)
@@ -27,6 +29,18 @@ export default function Dishes() {
     }
     const openNewDish = () => {
         setNewDishOpened(true);
+        document.body.style.overflowY = 'hidden';
+        document.body.style.marginRight = '14.5px';
+    }
+
+    const closeDeleteDish = () => {
+        setDeleteDishOpened(false)
+        document.body.style.overflowY = 'auto';
+        document.body.style.marginRight = 'auto';
+    }
+
+    const openDeleteDish = () => {
+        setDeleteDishOpened(true);
         document.body.style.overflowY = 'hidden';
         document.body.style.marginRight = '14.5px';
     }
@@ -73,8 +87,8 @@ export default function Dishes() {
                         <div className="dish__container">
                             <div className="dish__image-container">
                                 <img className="dish__img" src={meal}></img>
-                                <button type='button' className="dish__delete-btn"><img src={trash}></img></button>
-                                <button type='button' className="dish__edit-btn"><img src={edit}></img></button>
+                                <button type='button' className="dish__delete-btn"><img src={trash} onClick={openDeleteDish}></img></button>
+                                <button type='button' className="dish__edit-btn"><img src={edit} onClick={openNewDish}></img></button>
                             </div>
                             <h2 className="dish__name">{dishObject.name}</h2>
                             <div className="dish__tags">
@@ -89,7 +103,6 @@ export default function Dishes() {
             });
     }
 
-
     useEffect(() => {
          getDishes();
     }, []);
@@ -101,6 +114,11 @@ export default function Dishes() {
                 visible={NewDishOpened}
                 content={<NewDish closeFunc={closeNewDish} alertDishCreated={alertDishCreated}/>}
                 closeFunc={closeNewDish}
+            />
+            <Modal
+                visible={DeleteDishOpened}
+                content={<DeleteCard closeFunc={closeDeleteDish}/>}
+                closeFunc={closeDeleteDish}
             />
 
             <header className="App-header">
