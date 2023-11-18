@@ -7,6 +7,7 @@ from db.schemas.tags import Tag, TagCreate
 
 class BaseDish(BaseModel):
     name: str
+    image_url: Optional[str] = None
 
     @field_validator('name')
     def validate_name(cls, v: str):
@@ -27,6 +28,7 @@ class UpdateDish(BaseDish):
 
 class Dish(BaseModel):
     id: int
+    image_url: Optional[str] = None
     name: str
     user_id: int
     tags: list[Tag] = []

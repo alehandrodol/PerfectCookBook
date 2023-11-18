@@ -8,6 +8,7 @@ from db.schemas.ingredients import Ingredient, IngredientCreate
 
 class Recipe(BaseModel):
     id: int
+    image_url: Optional[str] = None
     name: str
     description: str
     cooking_flow: str
@@ -28,6 +29,7 @@ class RecipesOut(BaseModel):
 
 class BaseRecipe(BaseModel):
     dish_id: int
+    image_url: Optional[str] = None
     name: str
     description: str
     cooking_flow: str

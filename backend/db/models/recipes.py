@@ -9,6 +9,7 @@ class Recipe(DeclarativeBase):
     __tablename__ = "t_recipes"
 
     id = Column(Integer, autoincrement=True, primary_key=True, unique=True)
+    image_url = Column(String(256), nullable=True)
     name = Column(String(128), nullable=False)
     description = Column(String, nullable=False)
     cooking_flow = Column(String, nullable=False)
