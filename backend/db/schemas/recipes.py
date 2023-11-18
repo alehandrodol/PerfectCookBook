@@ -40,6 +40,8 @@ class RecipeCreate(BaseRecipe):
     ingredients: list[IngredientCreate] = []
 
 
+# логика тут в том, что если приходят тэги/ингредиенты
+# - старые удаляем новые ставим, не приходят - не меняем
 class RecipeUpdate(BaseRecipe):
     tags: Optional[list[TagCreate]] = None
     ingredients: Optional[list[IngredientCreate]] = None

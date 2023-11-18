@@ -18,9 +18,19 @@ class Recipe(DeclarativeBase):
     cooked_times = Column(Integer, nullable=False)
 
     dish = relationship('Dish', back_populates='recipes', lazy='selectin')
-    tags = relationship('Tag', secondary=RecipeTag, back_populates='recipes',
-                        cascade='all, delete, delete-orphan', single_parent=True)
 
+    # сейчас логика связи такая, что для рецепта создаются уникальные тэги,
+    # поэтому single_parent=true и каскад на удаление
+    tags = relationship('Tag',
+                        secondary=RecipeTag,
+                        back_populates='recipes',
+                        cascade='all, delete, delete-orphan',
+                        single_parent=True)
+
+    # сейчас логика связи такая, что для рецепта создаются уникальные ингредиенты,
+    # поэтому single_parent=true и каскад на удаление
     ingredients = relationship('Ingredient',
-                               back_populates='recipe', lazy='selectin',
-                               cascade='all, delete, delete-orphan', single_parent=True)
+                               back_populates='recipe',
+                               lazy='selectin',
+                               cascade='all, delete, delete-orphan',
+                               single_parent=True)

@@ -19,6 +19,8 @@ class CreateDish(BaseDish):
     tags: list[TagCreate] = []
 
 
+# логика тут в том, что если приходят тэги
+# - старые удаляем новые ставим, не приходят - не меняем
 class UpdateDish(BaseDish):
     tags: Optional[list[TagCreate]] = None
 
