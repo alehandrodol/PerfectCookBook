@@ -13,7 +13,10 @@ class Dish(DeclarativeBase):
     user_id = Column(Integer, ForeignKey('t_users.uuid'))
 
     user = relationship('User', back_populates='dishes')
-    recipes = relationship('Recipe', back_populates='dish')
-    tags = relationship('Tag', secondary=DishTag, back_populates='dishes', lazy='selectin')
+    recipes = relationship('Recipe', back_populates='dish', cascade='all, delete, delete-orphan')
+    tags = relationship('Tag',
+                        secondary=DishTag, back_populates='dishes', lazy='selectin',
+                        cascade='all, delete, delete-orphan', single_parent=True)
+
 
 

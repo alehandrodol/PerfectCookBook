@@ -1,11 +1,12 @@
+from typing import Optional
+
 from pydantic import BaseModel, field_validator
 
-from db.schemas.tags import Tag
+from db.schemas.tags import Tag, TagCreate
 
 
-class CreateDish(BaseModel):
+class BaseDish(BaseModel):
     name: str
-    tags: list[str] = []
 
     @field_validator('name')
     def validate_name(cls, v: str):
@@ -14,8 +15,12 @@ class CreateDish(BaseModel):
         return v
 
 
-class UpdateDish(CreateDish):
-    dish_id: int
+class CreateDish(BaseDish):
+    tags: list[TagCreate] = []
+
+
+class UpdateDish(BaseDish):
+    tags: Optional[list[TagCreate]] = None
 
 
 class Dish(BaseModel):

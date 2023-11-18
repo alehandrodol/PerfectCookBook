@@ -1,7 +1,9 @@
+from typing import Optional
+
 from pydantic import BaseModel, field_validator
 
-from db.schemas.tags import Tag
-from db.schemas.ingredients import Ingredient
+from db.schemas.tags import Tag, TagCreate
+from db.schemas.ingredients import Ingredient, IngredientCreate
 
 
 class Recipe(BaseModel):
@@ -24,25 +26,22 @@ class RecipesOut(BaseModel):
     recipes: list[Recipe]
 
 
-class IngredientDTO(BaseModel):
-    name: str
-    quantity: str
-    comment: str
-
-
-class RecipeCreate(BaseModel):
+class BaseRecipe(BaseModel):
     dish_id: int
     name: str
     description: str
     cooking_flow: str
     rating: float
     cooked_times: int = 0
-    tags: list[str] = []
-
-    ingredients: list[IngredientDTO] = []
 
 
-class RecipeUpdate(RecipeCreate):
-    recipe_id: int
+class RecipeCreate(BaseRecipe):
+    tags: list[TagCreate] = []
+    ingredients: list[IngredientCreate] = []
+
+
+class RecipeUpdate(BaseRecipe):
+    tags: Optional[list[TagCreate]] = None
+    ingredients: Optional[list[IngredientCreate]] = None
 
 

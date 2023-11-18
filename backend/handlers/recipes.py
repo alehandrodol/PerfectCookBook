@@ -67,7 +67,7 @@ async def create_recipe(
         cooked_times=new_recipe.cooked_times,
         dish_id=new_recipe.dish_id,
         dt=datetime.fromtimestamp(time.time()),
-        tags=[Tag(name=tag) for tag in new_recipe.tags],
+        tags=[Tag(name=tag.name) for tag in new_recipe.tags],
         ingredients=[
             Ingredient(
                 name=ingredient.name,
