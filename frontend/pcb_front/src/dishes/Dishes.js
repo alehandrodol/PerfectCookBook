@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import NewDish from "./NewDish";
+import EditDish from "./EditDish";
 import DeleteCard from './DeleteCard';
 import Modal from "../landing/Modal";
 import logOut from '../assets/dishes/logOut.svg';
@@ -20,6 +21,7 @@ export default function Dishes() {
 
     const [NewDishOpened, setNewDishOpened] = useState(false);
     const [DeleteDishOpened, setDeleteDishOpened] = useState(false);
+    const [EditDishOpened, setEditDishOpened] = useState(false);
 
     const closeNewDish = () => {
         setNewDishOpened(false)
@@ -33,20 +35,50 @@ export default function Dishes() {
         document.body.style.marginRight = '14.5px';
     }
 
+    const closeEditDish = () => {
+        setEditDishOpened(false)
+        document.body.style.overflowY = 'auto';
+        document.body.style.marginRight = 'auto';
+        getDishes();
+    }
+    const openEditDish = (dishInfo) => {
+        setDishToEdit(dishInfo)
+        setEditDishOpened(true);
+        document.body.style.overflowY = 'hidden';
+        document.body.style.marginRight = '14.5px';
+    }
+
     const closeDeleteDish = () => {
         setDeleteDishOpened(false)
         document.body.style.overflowY = 'auto';
         document.body.style.marginRight = 'auto';
+        getDishes();
     }
 
-    const openDeleteDish = () => {
+    const [dishIdToDel, setDishIdToDel] = useState();
+    const [dishNameToDel, setDishNameToDel] = useState();
+    const [dishToEdit, setDishToEdit] = useState();
+
+    const openDeleteDish = (dishInfo) => {
+        setDishIdToDel(dishInfo.id);
+        setDishNameToDel(dishInfo.name);
         setDeleteDishOpened(true);
         document.body.style.overflowY = 'hidden';
         document.body.style.marginRight = '14.5px';
     }
 
+
+
     const alertDishCreated = (dishName) => {
         toast.success('Блюдо "' + dishName + '" успешно добавлено!');
+    }
+
+    const alertDishDeleted = (dishName) => {
+        toast.warn('Блюдо "' + dishName + '" удалено');
+    }
+
+    const alertDishEdited = (dishName) => {
+        toast.success('Блюдо "' + dishName + '" изменено');
     }
 
     const navigate = useNavigate();
@@ -82,15 +114,18 @@ export default function Dishes() {
             .then(response => response.json())
             .then(data => {
                 let dishesObject = data;
-                setDishes(dishesObject.dishes.map(dishObject =>
+                setDishes(dishesObject.dishes.sort((a, b) => parseInt(a.id) - parseInt(b.id)).map(dishObject =>
                     <div className="dish">
                         <div className="dish__container">
                             <div className="dish__image-container">
                                 <img className="dish__img" src={meal}></img>
-                                <button type='button' className="dish__delete-btn"><img src={trash} onClick={openDeleteDish}></img></button>
-                                <button type='button' className="dish__edit-btn"><img src={edit} onClick={openNewDish}></img></button>
+                                <button type='button' className="dish__delete-btn"><img src={trash} onClick={() => openDeleteDish(dishObject)}></img></button>
+                                <button type='button' className="dish__edit-btn"><img src={edit} onClick={() => openEditDish(dishObject)}></img></button>
                             </div>
-                            <h2 className="dish__name">{dishObject.name}</h2>
+                            <h2 className="dish__name">
+                                {/* <b>ID: {dishObject.id} | </b> */} 
+                                {dishObject.name}
+                            </h2>
                             <div className="dish__tags">
                                 {dishObject.tags.map(dishTag =>
                                     <div className="dish__tag">{dishTag.name}</div>
@@ -117,8 +152,13 @@ export default function Dishes() {
             />
             <Modal
                 visible={DeleteDishOpened}
-                content={<DeleteCard closeFunc={closeDeleteDish}/>}
+                content={<DeleteCard closeFunc={closeDeleteDish} alertDishDeleted={alertDishDeleted} dishId = {dishIdToDel} dishName = {dishNameToDel}/>}
                 closeFunc={closeDeleteDish}
+            />
+            <Modal
+                visible={EditDishOpened}
+                content={<EditDish closeFunc={closeEditDish} alertDishEdited={alertDishEdited} dishInfo = {dishToEdit}/>}
+                closeFunc={closeEditDish}
             />
 
             <header className="App-header">
