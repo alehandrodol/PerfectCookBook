@@ -51,6 +51,7 @@ async def update(
     )
 
     recipe.name = updates.name
+    recipe.image_url = updates.image_url
     recipe.description = updates.description
     recipe.cooking_flow = updates.cooking_flow
     recipe.rating = updates.rating

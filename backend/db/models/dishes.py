@@ -9,6 +9,7 @@ class Dish(DeclarativeBase):
     __tablename__ = "t_dishes"
 
     id = Column(Integer, autoincrement=True, primary_key=True, unique=True)
+    image_url = Column(String(256), nullable=True)
     name = Column(String(128), nullable=False)
     user_id = Column(Integer, ForeignKey('t_users.uuid'))
 

@@ -61,6 +61,7 @@ async def create_recipe(
 
     recipe = Recipe(
         name=new_recipe.name,
+        image_url=new_recipe.image_url,
         description=new_recipe.description,
         cooking_flow=new_recipe.cooking_flow,
         rating=new_recipe.rating,

@@ -29,6 +29,7 @@ async def update_dish(
     dish: Dish = await db_session.get(Dish, dish_id)
 
     dish.name = updates.name
+    dish.image_url = updates.image_url
 
     if updates.tags is not None:
         tags: list[Tag] = [Tag(name=tag.name) for tag in updates.tags]
