@@ -1,11 +1,13 @@
+from typing import Optional
+
 from pydantic import BaseModel, field_validator
 
-from db.schemas.tags import Tag
+from db.schemas.tags import Tag, TagCreate
 
 
-class CreateDish(BaseModel):
+class BaseDish(BaseModel):
     name: str
-    tags: list[str] = []
+    image_url: Optional[str] = None
 
     @field_validator('name')
     def validate_name(cls, v: str):
@@ -14,12 +16,19 @@ class CreateDish(BaseModel):
         return v
 
 
-class UpdateDish(CreateDish):
-    dish_id: int
+class CreateDish(BaseDish):
+    tags: list[TagCreate] = []
+
+
+# логика тут в том, что если приходят тэги
+# - старые удаляем новые ставим, не приходят - не меняем
+class UpdateDish(BaseDish):
+    tags: Optional[list[TagCreate]] = None
 
 
 class Dish(BaseModel):
     id: int
+    image_url: Optional[str] = None
     name: str
     user_id: int
     tags: list[Tag] = []

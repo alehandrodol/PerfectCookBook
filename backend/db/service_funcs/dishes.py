@@ -1,9 +1,8 @@
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from db.schemas import dishes as dish_schemas
-from sqlalchemy.orm import selectinload
 
-from db.models import Dish
+from db.models import Dish, Tag
 from db.service_funcs.utils import async_db_session
 
 
@@ -28,9 +27,16 @@ async def update_dish(
         updates: dish_schemas.UpdateDish,
         db_session: AsyncSession) -> Dish:
     dish: Dish = await db_session.get(Dish, dish_id)
+
     dish.name = updates.name
+    dish.image_url = updates.image_url
+
+    if updates.tags is not None:
+        tags: list[Tag] = [Tag(name=tag.name) for tag in updates.tags]
+        dish.tags = tags
+
     await db_session.commit()
-    await db_session.refresh(dish)
+    await db_session.refresh(dish, attribute_names=["tags"])
     return dish
 
 

@@ -17,8 +17,9 @@ router = APIRouter()
 async def create_dish(new_dish: dish_schemas.CreateDish, current_user: Annotated[UserOut, Depends(get_current_user)]):
     dish = Dish(
         name=new_dish.name,
+        image_url=new_dish.image_url,
         user_id=current_user.uuid,
-        tags=[Tag(name=tag) for tag in new_dish.tags]
+        tags=[Tag(name=tag.name) for tag in new_dish.tags]
     )
 
     dish = await serv_dishes.insert_dish(dish)
