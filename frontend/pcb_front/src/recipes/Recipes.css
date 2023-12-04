@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Tilda Sans';
+    src: url('../assets/main_page/TildaSans-VF.ttf') format('truetype');
+}
+
+.header__button {
+    width: 385px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 51px;
+}
+
+.header__dish {
+    display: flex;
+    justify-content: center;
+    width: 266px;
+    height: 51px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 19.5px;
+    border: 2px solid #1F1F1F;
+    background: #FFFB47;
+    box-shadow: 2px 2px 0px 0px #000;
+    text-decoration: none;
+}
+
+.header__text {
+    margin: 0;
+    align-self: center;
+}
