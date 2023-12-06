@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import NewDish from "./NewDish";
 import EditDish from "./EditDish";
 import DeleteCard from './DeleteCard';
@@ -99,7 +100,6 @@ export default function Dishes() {
                 }
             });
     }, []);
-
     
     const [dishes, setDishes] = useState();
     
@@ -118,7 +118,9 @@ export default function Dishes() {
                     <div className="dish">
                         <div className="dish__container">
                             <div className="dish__image-container">
-                                <img className="dish__img" src={meal}></img>
+                                <Link to="/recipes" state={{ dishId: dishesObject.id }}>
+                                    <img className="dish__img" src={meal}></img>
+                                </Link>
                                 <button type='button' className="dish__delete-btn"><img src={trash} onClick={() => openDeleteDish(dishObject)}></img></button>
                                 <button type='button' className="dish__edit-btn"><img src={edit} onClick={() => openEditDish(dishObject)}></img></button>
                             </div>

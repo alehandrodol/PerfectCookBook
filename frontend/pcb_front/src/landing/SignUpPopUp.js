@@ -91,9 +91,9 @@ export default function SignUpPopUp({closeFunc}) {
                 <form className='form_type-signUp' name='form'>
                     <input name="login" type="text" placeholder="Логин" className="form__text form__text_type_login" id="login-input" required minLength="2" maxLength="30" value={inputLogin} onInput={e => setInputLogin(e.target.value)}></input>
                     <p className='form__caption'>Придумайте логин</p>
-                    <input name="password" type="text" placeholder="Пароль" className="form__text form__text_type_password" id="password-input" required minLength="8" maxLength="30" value={inputPassword} onInput={e => setInputPassword(e.target.value)}></input>
+                    <input name="password" type="password" placeholder="Пароль" className="form__text form__text_type_password" id="password-input" required minLength="8" maxLength="30" value={inputPassword} onInput={e => setInputPassword(e.target.value)}></input>
                     <p className='form__caption'>Пароль должен содержать не менее 6 символов</p>
-                    <input name="sampPassword" type="text" placeholder="Повторите пароль" className="form__text form__text_type_samePassword" id="samePassword-input" required minLength="8" maxLength="30" value={inputPasswordRepeat} onInput={e => setInputPasswordRepeat(e.target.value)}></input>
+                    <input name="sampPassword" type="password" placeholder="Повторите пароль" className="form__text form__text_type_samePassword" id="samePassword-input" required minLength="8" maxLength="30" value={inputPasswordRepeat} onInput={e => setInputPasswordRepeat(e.target.value)}></input>
                     <p className='form__caption'>Повторите пароль</p>
                 </form>
                 <div className="popup__checkbox">
