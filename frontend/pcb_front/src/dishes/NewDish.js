@@ -24,7 +24,9 @@ let createDish = async (name, tags) => {
         },
         body: JSON.stringify({
             'name': name,
-            'tags': tags
+            'tags': tags.map((x) => ({
+                name: x
+            }))
         })
     };
     await fetch(config.backend + '/dishes/create/', createDishRequest)

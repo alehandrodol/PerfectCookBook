@@ -118,7 +118,7 @@ export default function Dishes() {
                     <div className="dish">
                         <div className="dish__container">
                             <div className="dish__image-container">
-                                <Link to="/recipes" state={{ dishId: dishesObject.id }}>
+                                <Link to="/recipes" state={{ dishId: dishObject.id }}>
                                     <img className="dish__img" src={meal}></img>
                                 </Link>
                                 <button type='button' className="dish__delete-btn"><img src={trash} onClick={() => openDeleteDish(dishObject)}></img></button>
@@ -169,7 +169,7 @@ export default function Dishes() {
                         <div className='header__logoSvg'></div>
                         <div className='header__logoTitle'>Название</div>
                     </div>
-                    <button className='header__btn-exit'><img src={logOut}></img></button>
+                    <button className='header__btn-exit'><img src={logOut} onClick={() => {localStorage.removeItem('access_token'); navigate("/");}}></img></button>
                 </div>
                 <div className = 'header__line'></div>
             </header>
