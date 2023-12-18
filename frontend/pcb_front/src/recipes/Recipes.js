@@ -141,12 +141,14 @@ export default function Recipes(props) {
                     </form>
                 </div>
                 <div className="dishes">
-                    <button type="button" className="dishes__btn-add">
-                        <div className="dishes__container">
-                            <img className="dishes__plus" src={plus}></img>
-                            <p className="dishes__caption">Создать рецепт</p>
-                        </div>
-                    </button>
+                    <Link to="/create">
+                        <button type="button" className="dishes__btn-add">
+                            <div className="dishes__container">
+                                <img className="dishes__plus" src={plus}></img>
+                                <p className="dishes__caption">Создать рецепт</p>
+                            </div>
+                        </button>
+                    </Link>
                     {recipes}
                     
                 </div>
