@@ -105,6 +105,11 @@ export default function Recipes(props) {
                 ));
                 
             });
+
+            if (locationData.state.hasOwnProperty("newRecipe")) {
+                toast.success('Рецепт "' + locationData.state.newRecipe + '" успешно добавлен!');
+                delete locationData.state.newRecipe;
+            }
     }
 
 
@@ -141,7 +146,7 @@ export default function Recipes(props) {
                     </form>
                 </div>
                 <div className="dishes">
-                    <Link to="/create">
+                    <Link to="/create"  state={{ dishId: locationData.state.dishId }}>
                         <button type="button" className="dishes__btn-add">
                             <div className="dishes__container">
                                 <img className="dishes__plus" src={plus}></img>

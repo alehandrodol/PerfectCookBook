@@ -41,9 +41,9 @@ export default function Recipe() {
                 <div className="recipe">
                     <h1 className="recipe__title">{recipe.name}</h1>
                     <div className="recipe__caption">
-                        <p className="recipe__preparation-time">Время подготовлений: нет на бэке</p>
-                        <p className="recipe__portions">Порции: нет на бэке</p>
-                        <p className="recipe__cooking-time">Время приготовления: нет на бэке</p>
+                        <p className="recipe__preparation-time">Время подготовлений: {JSON.parse(recipe.description).time_prep}</p>
+                        <p className="recipe__portions">Порции: {JSON.parse(recipe.description).portions}</p>
+                        <p className="recipe__cooking-time">Время приготовления: {JSON.parse(recipe.description).time_cook}</p>
                     </div>
                     <div className="recipe__img-frame">
                         <img src={recipeImg} className="recipe__img"></img>
@@ -51,7 +51,7 @@ export default function Recipe() {
                     </div>
                     <div className="recipe__description">
                         <h2 className="recipe__description-title">Описание рецепта:</h2>
-                        <p className="recipe__text">{recipe.description}</p>
+                        <p className="recipe__text">{JSON.parse(recipe.description).description}</p>
                     </div>
                     <ol className="recipe__ingredients">
                         <h2 className="recipe__ingredients-title">Ингридиенты:</h2>
