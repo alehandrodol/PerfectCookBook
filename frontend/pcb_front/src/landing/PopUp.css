@@ -55,16 +55,14 @@
     font-family: 'Tilda Sans';
     font-size: 48px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     line-height: normal;
     margin: 0;
 }
 
 .popup__logo {
-    border-radius: 35px;
-    width: 65px;
-    height: 65px;
-    background-color: #a4a4a4;
+    width: 121px;
+    height: 121px;
 }
 
 .form {

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import config from '../config.json';
+import logo from '../assets/main_page/logo.svg';
 import { useNavigate } from "react-router-dom";
 import { signIn } from './SignInPopUp'
 
@@ -85,8 +86,8 @@ export default function SignUpPopUp({closeFunc}) {
         <aside className='popup popup_type-signUp'>
             <div className='popup__container'>
                 <div className='popup__header'>
-                    <div className='popup__logo'></div>
-                    <h2 className='popup__title'>Название</h2>
+                    <img src={logo} alt="logo" className='popup__logo'></img>
+                    <h2 className='popup__title'>RecipeBook+</h2>
                 </div>
                 <form className='form_type-signUp' name='form'>
                     <input name="login" type="text" placeholder="Логин" className="form__text form__text_type_login" id="login-input" required minLength="2" maxLength="30" value={inputLogin} onInput={e => setInputLogin(e.target.value)}></input>
@@ -98,7 +99,7 @@ export default function SignUpPopUp({closeFunc}) {
                 </form>
                 <div className="popup__checkbox">
                     <input type="checkbox" className="checkbox" checked={inputAgreeToTerms} onChange={() => setInputAgreeToTerms(!inputAgreeToTerms)}></input>
-                    <label className='popup__caption'>Нажимая кнопку зарегестрироваться, я даю свое согласие на обработку введеной персональной информации.</label>
+                    <label className='popup__caption'>Я даю свое согласие на обработку введеной персональной информации.</label>
                     <span></span>
                 </div>
                 <button className="popup__btn popup__register-btn" type="submit" arial-label="Зарегистрировать" onClick = {() => signUp(inputLogin, inputPassword, inputPasswordRepeat, inputAgreeToTerms).then(success => {if(success) {closeFunc(); navigate("/dishes")}})}>Регистрация</button>

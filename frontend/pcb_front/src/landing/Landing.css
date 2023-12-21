@@ -44,19 +44,16 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-}
-
-.logoSvg {
-  border-radius: 35px;
-  width: 70px;
-  height: 70px;
-  background-color: #a4a4a4;
+  gap: 36px;
 }
 
 .logoTitle {
-  color: black;
+  color: #1F1F1F;
+  font-family: 'Tilda Sans';
   font-size: 64px;
-  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
 
 .signInUp {
@@ -196,7 +193,7 @@
 }
 
 .windowText {
-  display: flex;
+  border-radius: 10%;
 }
 
 .welcomeBlock {

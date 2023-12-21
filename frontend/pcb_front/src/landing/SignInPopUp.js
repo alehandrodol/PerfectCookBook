@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import config from '../config.json';
+import logo from '../assets/main_page/logo.svg';
 import { useNavigate } from "react-router-dom";
 
 export let signIn = async (login, password) => {
@@ -43,8 +44,8 @@ export default function SignInPopUp({closeFunc}) {
         <aside className='popup popup_type-signIn'>
             <div className='popup__container'>
                 <div className='popup__header'>
-                    <div className='popup__logo'></div>
-                    <h2 className='popup__title'>Название</h2>
+                    <img src={logo} alt="logo" className='popup__logo'></img>
+                    <h2 className='popup__title'>RecipeBook+</h2>
                 </div>
                 <form className='form form_type-signIn' name='form'>
                     <input name="login" type="text" placeholder="Логин" className="form__text form__text_type_login" id="login-input" required minLength="2" maxLength="30" value={inputLogin} onInput={e => setInputLogin(e.target.value)}></input>
