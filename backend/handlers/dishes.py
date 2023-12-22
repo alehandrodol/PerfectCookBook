@@ -13,7 +13,7 @@ from handlers.auth import get_current_user
 router = APIRouter()
 
 
-@router.post("/create", response_model=dish_schemas.Dish)
+@router.post("/create", response_model=dish_schemas.Dish, tags=["Dishes"])
 async def create_dish(new_dish: dish_schemas.CreateDish, current_user: Annotated[UserOut, Depends(get_current_user)]):
     dish = Dish(
         name=new_dish.name,
@@ -28,7 +28,7 @@ async def create_dish(new_dish: dish_schemas.CreateDish, current_user: Annotated
     return dish_out
 
 
-@router.put("/{dish_id}", response_model=dish_schemas.Dish)
+@router.put("/{dish_id}", response_model=dish_schemas.Dish, tags=["Dishes"])
 async def edit_dish(
         dish_id: int,
         updates: dish_schemas.UpdateDish,
@@ -53,7 +53,7 @@ async def edit_dish(
     return dish_out
 
 
-@router.delete("/{dish_id}", status_code=204)
+@router.delete("/{dish_id}", status_code=204, tags=["Dishes"])
 async def delete_dish(dish_id: int, current_user: Annotated[UserOut, Depends(get_current_user)]):
     dish = await serv_dishes.get_dish_by_id(dish_id)
 
@@ -72,7 +72,7 @@ async def delete_dish(dish_id: int, current_user: Annotated[UserOut, Depends(get
     await serv_dishes.delete_dish(dish_id)
 
 
-@router.get("/", response_model=dish_schemas.DishesOut)
+@router.get("/", response_model=dish_schemas.DishesOut, tags=["Dishes"])
 async def get_dishes(current_user: Annotated[UserOut, Depends(get_current_user)]):
     dishes = await serv_dishes.get_user_dishes(current_user.uuid)
 

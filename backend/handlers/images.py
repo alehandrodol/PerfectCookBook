@@ -9,7 +9,7 @@ from starlette.responses import FileResponse
 router = APIRouter()
 
 
-@router.post("/images/")
+@router.post("/images/", tags=["Images"])
 async def create_image(file: UploadFile):
     # изображения кладутся в папку images которая (по идее) находится в корне проекта
     # если он запускается из PerfectCookBook/backend, как в инструкции написано
@@ -31,7 +31,7 @@ async def create_image(file: UploadFile):
     return {"path": "/images/" + filename}
 
 
-@router.get("/images/{file_name}")
+@router.get("/images/{file_name}", tags=["Images"])
 async def get_image(file_name: str):
     out_file_path = os.path.join(os.getcwd(), "..", "images", file_name)
     out_file_path = os.path.abspath(out_file_path)

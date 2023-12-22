@@ -47,12 +47,12 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]) -> use
     return user_schemas.UserOut.model_validate(user)
 
 
-@router.get("/check_me", response_model=user_schemas.UserOut)
+@router.get("/check_me", response_model=user_schemas.UserOut, tags=["Auth"])
 async def check_me(current_user: Annotated[user_schemas.UserOut, Depends(get_current_user)]):
     return current_user
 
 
-@router.post("/token")
+@router.post("/token", tags=["Auth"])
 async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
     user: User = await authenticate_user(form_data.username, form_data.password)
 

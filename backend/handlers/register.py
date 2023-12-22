@@ -10,7 +10,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 router = APIRouter()
 
 
-@router.post("/", status_code=201, response_model=user_schemas.UserOut)
+@router.post("/", status_code=201, response_model=user_schemas.UserOut, tags=["Registration"])
 async def register(new_user: user_schemas.UserIn):
     user: User = await db_users.get_user_by_login(new_user.login)
     if user:

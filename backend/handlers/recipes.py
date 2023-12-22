@@ -15,7 +15,7 @@ from handlers.auth import get_current_user
 router = APIRouter()
 
 
-@router.get("/", response_model=recipe_schemas.RecipesOut)
+@router.get("/", response_model=recipe_schemas.RecipesOut, tags=["Recipes"])
 async def get_recipes(dish_id: int, current_user: Annotated[UserOut, Depends(get_current_user)]):
     dish = await serv_dishes.get_dish_by_id(dish_id)
 
@@ -40,7 +40,7 @@ async def get_recipes(dish_id: int, current_user: Annotated[UserOut, Depends(get
     )
 
 
-@router.post("/create", response_model=recipe_schemas.Recipe)
+@router.post("/create", response_model=recipe_schemas.Recipe, tags=["Recipes"])
 async def create_recipe(
         new_recipe: recipe_schemas.RecipeCreate,
         current_user: Annotated[UserOut, Depends(get_current_user)]):
@@ -84,7 +84,7 @@ async def create_recipe(
     return recipe_out
 
 
-@router.put("/{recipe_id}", response_model=recipe_schemas.Recipe)
+@router.put("/{recipe_id}", response_model=recipe_schemas.Recipe, tags=["Recipes"])
 async def edit_recipe(
         recipe_id: int,
         updates: recipe_schemas.RecipeUpdate,
@@ -112,7 +112,7 @@ async def edit_recipe(
     return recipe_out
 
 
-@router.delete("/{recipe_id}", status_code=204)
+@router.delete("/{recipe_id}", status_code=204, tags=["Recipes"])
 async def delete_recipe(
         recipe_id: int,
         current_user: Annotated[UserOut, Depends(get_current_user)]):
