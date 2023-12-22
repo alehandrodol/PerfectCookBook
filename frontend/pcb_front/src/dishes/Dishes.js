@@ -13,6 +13,7 @@ import plus from '../assets/dishes/plus.svg';
 import meal from '../assets/dishes/meal.svg';
 import trash from '../assets/dishes/delete.svg';
 import edit from '../assets/dishes/edit.svg';
+import logo from '../assets/main_page/logo.svg';
 import config from '../config.json';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -166,8 +167,8 @@ export default function Dishes() {
             <header className="App-header">
                 <div className="header">
                     <div className='header__logo'>
-                        <div className='header__logoSvg'></div>
-                        <div className='header__logoTitle'>Название</div>
+                        <img src={logo} alt="Logo"className='header__logoSvg'></img>
+                        <div className='header__logoTitle'>RecipeBook+</div>
                     </div>
                     <button className='header__btn-exit'><img src={logOut} onClick={() => {localStorage.removeItem('access_token'); navigate("/");}}></img></button>
                 </div>

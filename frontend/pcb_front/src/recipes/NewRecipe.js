@@ -6,6 +6,7 @@ import logOut from '../assets/dishes/logOut.svg';
 import save from '../assets/dishes/save.svg';
 import Modal from "../landing/Modal";
 import NewTag from "../dishes/NewTag";
+import logo from '../assets/main_page/logo.svg';
 import { useLocation } from "react-router";
 import config from '../config.json';
 import { ToastContainer, toast } from 'react-toastify';
@@ -137,8 +138,8 @@ export default function NewRecipe() {
              <header className="App-header">
                 <div className="header">
                     <div className='header__logo'>
-                        <div className='header__logoSvg'></div>
-                        <div className='header__logoTitle'>Название</div>
+                        <img src={logo} alt="Logo"className='header__logoSvg'></img>
+                        <div className='header__logoTitle'>RecipeBook+</div>
                     </div>
                     <div className="header__buttons">
                         <Link className="header__dish" to="/dishes"><p className="header__text">Блюда</p></Link>

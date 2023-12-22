@@ -7,6 +7,8 @@ import smileFaceIcon from '../assets/main_page/smileFaceIcon.svg';
 import card1 from '../assets/main_page/card1.svg';
 import card2 from '../assets/main_page/card2.svg';
 import card3 from '../assets/main_page/card3.svg';
+import logo from '../assets/main_page/logo.svg';
+import cat from '../assets/main_page/cat.svg';
 import SingInPopUp from './SignInPopUp'
 import SingUpPopUp from './SignUpPopUp'
 import './Landing.css';
@@ -58,8 +60,8 @@ export default function Landing() {
       <header className="App-header">
         <div className='headerMain'>
           <div className='logo'>
-            <div className='logoSvg'></div>
-            <div className='logoTitle'>Название</div>
+            <img src={logo} alt="Logo" className='logoSvg'></img>
+            <div className='logoTitle'>RecipeBook+</div>
 
           </div>
           <div className='signInUp'>
@@ -83,7 +85,7 @@ export default function Landing() {
             </div>
             <div className='windowHeaderLine'></div>
             <div className='windowContent'>
-              <div className='windowText'>Хз сюда поместим короче мини копию страницы рецепта или я нарисую иллюстрацию какую нииить</div>
+              <img src={cat} alt="cat" className='windowText'></img>
             </div>
           </div>
         </div>
@@ -91,7 +93,7 @@ export default function Landing() {
         <div className='welcomeBlock'>
           <img src={starIcon} className="starIcon"/>
           <div className = 'welcomeTitle' >Добро пожаловать<br/>в твою <span className='orange'>идеальную</span> книгу рецептов!</div>
-          <div className='welcomeText'>В “название” ты можешь создать свою книгу рецептов, удобную и понятну .......хз че писать</div>
+          <div className='welcomeText'>RecipeBook+ позволит тебе держать любимые способы приготовления блюда всегда под рукой</div>
           <div className='createRecipeButton'>Создать рецепт</div>
           
         </div>
@@ -100,7 +102,7 @@ export default function Landing() {
       <div className='block2'>
         <div className='block2TextContainer'>
           <div className='block2TextTitle'><span className='orange2'>Cобери</span> все любимые блюда в одном месте</div>
-          <div className='block2TextText'>Поставь тэги для сортировки ебанись головой об стену<br/>нам нужен маркетолог я не умею писать тексты</div>
+          <div className='block2TextText'>Создавай различные варианты рецептов и сортируй еду с помощью тэгов.</div>
           <img src={arrow1Icon} className="arrow1Icon"/>
         </div>
         <img src={block2Image} className="block2Image"/>

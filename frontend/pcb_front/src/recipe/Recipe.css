@@ -48,17 +48,13 @@
   cursor: pointer;
 }
 
-.header__logoSvg {
-  border-radius: 35px;
-  width: 70px;
-  height: 70px;
-  background-color: #a4a4a4;
-}
-
 .header__logoTitle {
-  color: black;
-  font-size: 64px;
-  font-family: 'Inter';
+    color: #1F1F1F;
+    font-family: 'Tilda Sans';
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
 }
 
 .header__btn-exit {
