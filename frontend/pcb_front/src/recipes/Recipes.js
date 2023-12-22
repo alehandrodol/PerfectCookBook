@@ -87,7 +87,7 @@ export default function Recipes(props) {
                         <div className="dish__container">
                             <div className="dish__image-container">
                                 <Link to="/recipe" state={{ recipeData: recipeObject, dishId: locationData.state.dishId }}>
-                                    <img className="dish__img" src={meal}></img>
+                                    <img className="dish__img" src={recipeObject.image_url}></img>
                                 </Link>
                                 <button type='button' className="dish__delete-btn"><img src={trash} onClick={() => openDeleteRecipe(recipeObject)}></img></button>
                                 <button type='button' className="dish__edit-btn"><img src={edit} ></img></button> {/* добавить потом сюда onClick={() => openEditRecipe(recipeObject)} */}

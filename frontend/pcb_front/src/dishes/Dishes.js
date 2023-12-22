@@ -120,7 +120,7 @@ export default function Dishes() {
                         <div className="dish__container">
                             <div className="dish__image-container">
                                 <Link to="/recipes" state={{ dishId: dishObject.id }}>
-                                    <img className="dish__img" src={meal}></img>
+                                    <img className="dish__img" src={dishObject.image_url}></img>
                                 </Link>
                                 <button type='button' className="dish__delete-btn"><img src={trash} onClick={() => openDeleteDish(dishObject)}></img></button>
                                 <button type='button' className="dish__edit-btn"><img src={edit} onClick={() => openEditDish(dishObject)}></img></button>

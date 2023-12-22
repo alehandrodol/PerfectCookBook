@@ -47,7 +47,7 @@ export default function Recipe() {
                         <p className="recipe__cooking-time">Время приготовления: {JSON.parse(recipe.description).time_cook}</p>
                     </div>
                     <div className="recipe__img-frame">
-                        <img src={recipeImg} className="recipe__img"></img>
+                        <img src={recipe.image_url} className="recipe__img"></img>
                         <button type="button" className="recipe__edit-btn"><img className="recipe__edit-img" src={edit}></img></button>
                     </div>
                     <div className="recipe__description">
