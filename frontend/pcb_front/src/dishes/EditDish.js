@@ -9,14 +9,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import config from '../config.json';
 
-let createDish = async (name, tags) => {
+let editDishInfo = async (name, dishId) => {
     let success = false
     if (name.length < 3) {
         toast.error('Слишком короткое название');
         return success
     }
-    const createDishRequest = {
-        method: 'POST',
+    const editDishRequest = {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'accept': 'application/json',
@@ -24,12 +24,11 @@ let createDish = async (name, tags) => {
         },
         body: JSON.stringify({
             'name': name,
-            'tags': tags.map((x) => ({
-                name: x
-            }))
+            'tags': [],
+            'dish_id': dishId
         })
     };
-    await fetch(config.backend + '/dishes/create/', createDishRequest)
+    await fetch(config.backend + '/dishes/' + dishId, editDishRequest)
         .then(response => response.json())
         .then(data => {
             if (data.name == name) {
@@ -41,11 +40,10 @@ let createDish = async (name, tags) => {
 
 
 
-export default function NewDish({closeFunc, alertDishCreated}) {
-
-    const [newTags, setNewTags] = useState([]);
-    const [inputTagName, setInputTagName] = useState('');
-
+export default function EditDish({closeFunc, alertDishEdited, dishInfo}) {
+    
+    const [newTags, setNewTags] = useState(dishInfo.tags.map((x) => x.name));
+    const [inputTagName, setInputTagName] = useState(dishInfo.name);
     const [NewTagOpened, setNewTagOpened] = useState(false);
 
     const closeNewTag = () => {
@@ -87,7 +85,7 @@ export default function NewDish({closeFunc, alertDishCreated}) {
                         {newTags.length < 4 ? <button type='button' className="form__btn-addTag" onClick={openNewTag}><img src={tagAdd} className="popup__img-tag"></img></button>: null}
                     </div>
                     
-                    <button type='button' className="form__btn-submit" onClick={() => createDish(inputTagName, newTags).then(success => {if(success) {closeFunc(); alertDishCreated(inputTagName)}})}>Сохранить</button>
+                    <button type='button' className="form__btn-submit" onClick={() => editDishInfo(inputTagName, dishInfo.id).then(success => {if(success) {closeFunc(); alertDishEdited(inputTagName)}})}>Сохранить</button>
                 </form>
                 <button type="button" className="popup__clpose-btn" onClick={closeFunc}><img src={cross} className="popup__img-cross"></img></button>
             </div>

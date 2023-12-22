@@ -1,0 +1,314 @@
+@font-face {
+    font-family: 'Tilda Sans';
+    src: url('../assets/main_page/TildaSans-VF.ttf') format('truetype');
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+.App-header {
+  height: 168px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.header {
+  height: 113px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-between;
+  background-color: #FFF8E7;
+  padding-bottom: 55px;
+}
+
+.header__logo {
+  width: 406px;
+  height: 77px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header__logoSvg {
+  border-radius: 35px;
+  width: 70px;
+  height: 70px;
+  background-color: #a4a4a4;
+}
+
+.header__logoTitle {
+  color: black;
+  font-size: 64px;
+  font-family: 'Inter';
+}
+
+.header__btn-exit {
+    border: 0;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.header__line {
+  width: calc(100% - 10px);
+  height: 4px;
+  background-color: black;   
+}
+
+.header__buttons {
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 51px;
+}
+
+.header__dish {
+    display: flex;
+    justify-content: center;
+    width: 266px;
+    height: 51px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 19.5px;
+    border: 2px solid #1F1F1F;
+    background: #FFFB47;
+    box-shadow: 2px 2px 0px 0px #000;
+    text-decoration: none;
+}
+
+.header__recipe {
+    display: flex;
+    justify-content: center;
+    width: 266px;
+    height: 51px;
+    color: #1F1F1F;
+    text-align: center;
+    font-family: 'Tilda Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 19.5px;
+    border: 2px solid #1F1F1F;
+    background: #C7F442;
+    box-shadow: 2px 2px 0px 0px #000;
+    text-decoration: none;
+}
+
+.header__text {
+    margin: 0;
+    align-self: center;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe__title {
+    color: #FFBA39;
+    font-family: 'Tilda Sans';
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin: 21px auto 34px;
+}
+
+.recipe__caption {
+    width: 1475px;
+    height: 67px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    background: #DEE5FF;
+    color: #1F1F1F;
+    font-family: 'Tilda Sans';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.recipe__img-frame {
+    position: relative;
+    width: 615px;
+    height: 562px;
+    border-radius: 50px;
+    border: 5px solid #FFBA39;
+    background: #FFF8E7;
+    padding: 25px 25px 25px 25px;
+    margin: 49px auto 49px;
+}
+
+.recipe__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.recipe__edit-btn {
+    position: absolute;
+    bottom: -10px;
+    right: -500px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.recipe__edit-img {
+    width: 150px;
+    height: 150px;
+}
+
+.recipe__description {
+    width: 1479px;
+    min-height: 562px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    border: 5px solid #FFBA39;
+    background: #FFF8E7;
+    padding: 20px 61px 61px 41px;
+    margin-bottom: 49px;
+}
+
+.recipe__description-title {
+    color: #F45C4A;
+    font-family: 'Tilda Sans';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 10px 0;
+}
+
+.recipe__text {
+    width: 1357px;
+    color: #1F1F1F;
+    font-family: 'Tilda Sans';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.recipe__ingredients {
+    width: 1479px;
+    min-height: 562px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    border: 5px solid #FFBA39;
+    background: #FFF8E7;
+    padding: 20px 61px 61px 41px;
+    margin-bottom: 49px;
+    list-style-position: inside;
+}
+
+.recipe__ingredients-title {
+    color: #F45C4A;
+    font-family: 'Tilda Sans';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 10px 0;
+}
+
+.recipe__ingredient {
+    color: #1F1F1F;
+    font-family: 'Tilda Sans';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+.recipe__quantity {
+    width: 177px;
+    background-color: #FBEAC0;
+    border-radius: 20px;
+    margin-left: 25px;
+}
+
+.recipe__recipe {
+    width: 1479px;
+    min-height: 562px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    border: 5px solid #FFBA39;
+    background: #FFF8E7;
+    padding: 20px 61px 61px 41px;
+    margin-bottom: 49px;
+}
+
+.recipe__recipe-title {
+    color: #F45C4A;
+    font-family: 'Tilda Sans';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 10px 0;
+}
+
+.recipe__tags {
+    display: flex;
+    width: 1601px;
+    justify-content: space-between;
+    height: 74px;
+    margin-bottom: 30px;
+    gap: 30px;
+}
+
+.recipe__tags__tag {
+    display: flex;
+    height: 100%;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 3px solid var(--black-80, #1F1F1F);
+    background-color:#F87D5B;
+    color: var(--black-80, #1F1F1F);
+    text-align: center;
+    font-family: IBM Plex Mono;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
